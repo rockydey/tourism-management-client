@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import NotFoundImg from "../../assets/404.jpg";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
   return (
     <div className='my-20'>
+      <Helmet>
+        <title>Not Found - Roaming Routs</title>
+      </Helmet>
       <div className='px-5 md:px-10 lg:px-0 lg:w-5/12 mx-auto'>
         <Link
           to='/'
