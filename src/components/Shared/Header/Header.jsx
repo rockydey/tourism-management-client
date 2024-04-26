@@ -124,7 +124,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className='shadow-md w-full fixed top-0 left-0 bg-color1 dark:bg-color5 duration-300'>
+    <div className='z-50 shadow-md w-full fixed top-0 left-0 bg-color1 dark:bg-color5 duration-300'>
       <div className='max-w-screen-xl mx-auto lg:flex items-center justify-between bg-white py-6 pl-5 md:pl-10 lg:pl-0'>
         <Link
           to='/'
