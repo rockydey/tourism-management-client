@@ -2,11 +2,14 @@ import Footer from "../../components/Shared/Footer/Footer";
 import Header from "../../components/Shared/Header/Header";
 import { useForm } from "react-hook-form";
 import { AtSign, LockKeyhole, Eye, EyeOff, User, ImageUp } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const { createUser, userUpdateProfile, setLoading } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -15,6 +18,8 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (data) => {
     const name = data.userName;
@@ -28,7 +33,23 @@ const Register = () => {
         "Password should have a uppercase and a lowercase and also minimum 6 character!"
       );
       return;
+    } else {
+      setError("");
     }
+
+    createUser(email, password)
+      .then((result) => {
+        toast.success("User Register Successfully!");
+        console.log(result.user);
+        userUpdateProfile(name, photoURL)
+          .then((result) => {
+            setLoading(false);
+            console.log(result);
+          })
+          .catch((error) => console.error(error.message));
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   return (
@@ -143,8 +164,8 @@ const Register = () => {
               </div>
               <input
                 className={`${
-                  !checked && "cursor-not-allowed read-only:opacity-50"
-                } block w-full mt-3 bg-color6 dark:bg-color3 text-[#fff] font-medium text-lg py-3 rounded-full cursor-pointer`}
+                  !checked ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+                } block w-full mt-3 bg-color6 dark:bg-color3 text-[#fff] font-medium text-lg py-3 rounded-full`}
                 type='submit'
                 value='Register'
                 disabled={!checked && true}
