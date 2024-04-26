@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -17,6 +18,11 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const signInUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const userUpdateProfile = (name, photoURL) => {
@@ -46,6 +52,7 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     createUser,
+    signInUser,
     userUpdateProfile,
     logOut,
   };

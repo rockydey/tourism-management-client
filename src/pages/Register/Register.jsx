@@ -39,7 +39,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        toast.success("User Register Successfully!");
+        toast.success("User Registered Successfully!");
         console.log(result.user);
         userUpdateProfile(name, photoURL)
           .then((result) => {
@@ -58,9 +58,9 @@ const Register = () => {
         <title>Register - Roaming Routes</title>
       </Helmet>
       <Header />
-      <div className='bg-color3'>
+      <div className='bg-color3 px-5 md:px-0'>
         <div className='max-w-screen-xl mx-auto mt-20 py-24'>
-          <div className='p-10 rounded-xl bg-color1 dark:bg-color5 w-full md:w-3/4 lg:w-[40%] mx-auto'>
+          <div className='px-5 py-10 md:px-10 rounded-xl bg-color1 dark:bg-color5 w-full md:w-3/4 lg:w-[40%] mx-auto'>
             <h3 className='text-center font-gothic text-color6 dark:text-color1 font-extrabold text-2xl mb-5'>
               Register Here
             </h3>
