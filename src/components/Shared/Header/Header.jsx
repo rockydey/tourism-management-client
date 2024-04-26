@@ -1,13 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, CircleX } from "lucide-react";
 import { IoMoon } from "react-icons/io5";
 import { IoSunny } from "react-icons/io5";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const element = document.documentElement;
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => toast.success("Logout Successfully!"))
+      .catch((error) => console.error(error));
+  };
 
   const navLinkStyles = ({ isActive }) => {
     return {
@@ -73,22 +83,44 @@ const Header = () => {
           My List
         </NavLink>
       </li>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          to='/login'
-          style={navLinkStyles}
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
-          Login
-        </NavLink>
-      </li>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          style={navLinkStyles}
-          to='/register'
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
-          Register
-        </NavLink>
-      </li>
+      {user ? (
+        <div className='lg:ml-8 gap-8 flex items-center text-xl lg:my-0 md:my-4 my-7'>
+          <div className='flex items-center'>
+            <div id='displayName' className='avatar online'>
+              <div className='w-10 rounded-full'>
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <Tooltip anchorSelect='#displayName' place='bottom'>
+              {user.displayName}
+            </Tooltip>
+          </div>
+          <button
+            onClick={handleLogOut}
+            className='text-color6 dark:text-color8 dark:border-color8 px-4 py-2 border-2 border-color6 rounded-xl duration-300'>
+            Logout
+          </button>
+        </div>
+      ) : (
+        <>
+          <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
+            <NavLink
+              to='/login'
+              style={navLinkStyles}
+              className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
+              Login
+            </NavLink>
+          </li>
+          <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
+            <NavLink
+              style={navLinkStyles}
+              to='/register'
+              className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
+              Register
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
