@@ -20,7 +20,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
 
   const handleLogin = (data) => {
     const email = data.userEmail;
@@ -28,13 +28,25 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        toast.success("User Logged in successfully!");
+        toast.success("User logged in successfully!");
         console.log(result.user);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error("Wrong email or password!");
         console.error(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        toast.success("User logged in successfully!");
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
   return (
@@ -52,6 +64,7 @@ const Login = () => {
             <div className='text-2xl flex justify-center items-center gap-5'>
               <div>
                 <p
+                  onClick={handleGoogleLogin}
                   id='google'
                   className='flex p-2 cursor-pointer border border-color3 bg-[#fff]  rounded-full'>
                   <FcGoogle />
