@@ -15,7 +15,7 @@ const Home = () => {
       <Header />
       <Banner />
       <div className='dark:bg-color5'>
-        <div className='py-24 max-w-screen-xl mx-auto'>
+        <div className='py-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <h3 className='text-3xl uppercase text-center dark:text-color1 mb-8 font-gothic text-color6 font-extrabold'>
             Spotlight
           </h3>

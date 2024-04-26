@@ -26,7 +26,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/view-spot/:id",
-        element: <ViewSpot />,
+        element: (
+          <PrivateRoute>
+            <ViewSpot />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-spots/${params.id}`),
       },
       {
         path: "/add-spot",

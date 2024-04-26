@@ -12,9 +12,9 @@ const SpotCard = ({ spot }) => {
     average_cost,
   } = spot;
   return (
-    <div className='dark:bg-color1 shadow-lg rounded-xl  gap-10 flex items-center'>
+    <div className='dark:bg-color1 shadow-lg rounded-xl  gap-10 flex flex-col md:flex-row items-center'>
       <div>
-        <img className=' rounded-s-xl' src={image} alt='' />
+        <img className=' md:rounded-s-xl' src={image} alt='' />
       </div>
       <div className='space-y-2 py-3 pr-3 font-gothic'>
         <h3 className='text-2xl font-bold text-color6'>
