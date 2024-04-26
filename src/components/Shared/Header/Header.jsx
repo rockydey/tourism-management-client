@@ -9,6 +9,13 @@ const Header = () => {
   const [theme, setTheme] = useState("light");
   const element = document.documentElement;
 
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      color: isActive ? "#F9B17A" : "",
+      textDecoration: isActive ? "underline" : "none",
+    };
+  };
+
   const options = [
     {
       text: "dark",
@@ -36,39 +43,49 @@ const Header = () => {
     <>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
         <NavLink
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'
+          style={navLinkStyles}
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
           to='/'>
           Home
         </NavLink>
       </li>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
         <NavLink
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'
-          to='/'>
+          style={navLinkStyles}
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
+          to='/all-spot'>
           All Tourists Spot
         </NavLink>
       </li>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
         <NavLink
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'
-          to='/'>
+          style={navLinkStyles}
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
+          to='/add-spot'>
           Add Tourists Spot
         </NavLink>
       </li>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
         <NavLink
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'
-          to='/'>
+          style={navLinkStyles}
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
+          to='/my-list'>
           My List
         </NavLink>
       </li>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'>
+        <NavLink
+          to='/login'
+          style={navLinkStyles}
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
           Login
         </NavLink>
       </li>
       <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink className='text-color6 dark:text-color8 hover:text-color3 duration-300 focus:text-color3 focus:underline'>
+        <NavLink
+          style={navLinkStyles}
+          to='/register'
+          className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
           Register
         </NavLink>
       </li>
