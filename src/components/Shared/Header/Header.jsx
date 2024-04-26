@@ -75,7 +75,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className='shadow-md w-full fixed top-0 left-0 bg-color1 dark:bg-color6 duration-300'>
+    <div className='shadow-md w-full fixed top-0 left-0 bg-color1 dark:bg-color5 duration-300'>
       <div className='max-w-screen-xl mx-auto lg:flex items-center justify-between bg-white py-6 pl-5 md:pl-10 lg:pl-0'>
         <Link
           to='/'
@@ -100,7 +100,7 @@ const Header = () => {
         </div>
 
         <ul
-          className={`lg:flex font-raleway dark:bg-color6 font-medium lg:items-center lg:rounded-none rounded-b-2xl absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-300 ease-in shadow-lg lg:shadow-none ${
+          className={`lg:flex font-raleway bg-color1 dark:bg-color5 font-medium lg:items-center lg:rounded-none rounded-b-2xl absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-200 ease-in shadow-lg lg:shadow-none ${
             open
               ? "top-20 lg:border-none border-y-2 dark:border-color8 border-color6"
               : "top-[-490px]"
