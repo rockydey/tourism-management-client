@@ -12,7 +12,7 @@ const NotFound = () => {
       <div className='px-5 md:px-10 lg:px-0 lg:w-5/12 mx-auto'>
         <Link
           to='/'
-          className='flex items-center gap-3 justify-center font-gothic text-2xl font-bold text-color3F'>
+          className='flex items-center gap-3 justify-center font-gothic text-2xl font-bold text-color5'>
           <FaArrowAltCircleLeft /> <span>Back to Home</span>
         </Link>
         <img className='w-full' src={NotFoundImg} alt='' />
