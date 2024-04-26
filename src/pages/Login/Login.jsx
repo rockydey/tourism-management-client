@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <Helmet>
-        <title>Login - Roaming Routes</title>
+        <title>Login</title>
       </Helmet>
       <Header />
       <div className='bg-color3 px-5 md:px-0'>

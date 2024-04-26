@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
+import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/all-spot",
+        element: <AllTouristsSpot />,
+      },
+      {
+        path: "/add-spot",
+        element: <AddTouristsSpot />,
       },
       {
         path: "/login",

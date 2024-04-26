@@ -7,7 +7,7 @@ const NotFound = () => {
   return (
     <div className='my-20'>
       <Helmet>
-        <title>Not Found - Roaming Routs</title>
+        <title>404 - Not Found</title>
       </Helmet>
       <div className='px-5 md:px-10 lg:px-0 lg:w-5/12 mx-auto'>
         <Link

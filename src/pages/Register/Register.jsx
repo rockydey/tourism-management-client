@@ -55,7 +55,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>Register - Roaming Routes</title>
+        <title>Register</title>
       </Helmet>
       <Header />
       <div className='bg-color3 px-5 md:px-0'>
