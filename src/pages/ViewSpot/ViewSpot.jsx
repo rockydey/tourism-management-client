@@ -24,22 +24,22 @@ const ViewSpot = () => {
         <title>View Spot - {tourists_spot_name}</title>
       </Helmet>
       <Header />
-      <div className="dark:bg-color6">
-        <div className='mt-20 py-20 max-w-screen-xl mx-auto'>
-          <div className='w-[90%] mx-auto bg-color8 p-10 rounded-xl'>
-            <div className='flex gap-10 items-center'>
+      <div className='dark:bg-color6'>
+        <div className='mt-20 py-20 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
+          <div className='w-full lg:w-[90%] mx-auto bg-color8 p-10 rounded-xl'>
+            <div className='flex flex-col lg:flex-row gap-10 items-center'>
               <div>
                 <img className='rounded-xl' src={image} alt='' />
               </div>
               <div className='font-gothic space-y-3'>
-                <h3 className='text-3xl font-medium'>
+                <h3 className='text-2xl md:text-3xl font-medium'>
                   <span className='font-bold'>Tourist Spot:</span>{" "}
                   {tourists_spot_name}
                 </h3>
-                <h3 className='text-2xl font-medium'>
+                <h3 className='text-xl md:text-2xl font-medium'>
                   <span className='font-bold'>Location:</span> {location}
                 </h3>
-                <h3 className='text-xl font-medium'>
+                <h3 className='text-lg md:text-xl font-medium'>
                   <span className='font-bold'>Country:</span> {country_Name}
                 </h3>
                 <p className='text-base font-medium text-color5'>
