@@ -11,7 +11,7 @@ import { Tooltip } from "react-tooltip";
 
 const Footer = () => {
   return (
-    <div className=''>
+    <div className='border-t border-color8'>
       <div className='pt-16 pb-10 dark:bg-color5 bg-color1 duration-300'>
         <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
