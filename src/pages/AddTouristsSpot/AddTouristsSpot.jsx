@@ -77,7 +77,7 @@ const AddTouristsSpot = () => {
         <title>Add Tourists Spot</title>
       </Helmet>
       <div className='dark:bg-color6'>
-        <div className='mt-20 py-24 px-5 md:px-10 lg:px-0'>
+        <div className='mt-16 py-24 px-5 md:px-10 lg:px-0'>
           <div className='bg-[#F4F3F0] w-full lg:w-3/4 mx-auto rounded-xl py-8 md:py-16 px-5 md:px-10 lg:px-20 space-y-8'>
             <h2 className='font-gothic text-color6 font-bold text-3xl md:text-4xl text-center'>
               Add Tourists Spot

@@ -22,7 +22,7 @@ const AllTouristsSpot = () => {
         <title>All Tourists Spot</title>
       </Helmet>
       <div className='dark:bg-color6'>
-        <div className='mt-20 py-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
+        <div className='mt-16 py-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='dropdown dropdown-bottom flex flex-col items-center mb-16'>
             <div
               tabIndex={0}

@@ -114,7 +114,7 @@ const MyList = () => {
         <title>My List</title>
       </Helmet>
       <div className='dark:bg-color6'>
-        <div className='mt-20 max-w-screen-xl mx-auto py-24 px-5 md:px-10 lg:px-0'>
+        <div className='mt-16 max-w-screen-xl mx-auto py-24 px-5 md:px-10 lg:px-0'>
           <div className='overflow-x-auto'>
             <table className='table'>
               <thead>

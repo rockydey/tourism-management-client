@@ -10,7 +10,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className='mt-20 md:mt-0'>
+    <div className='mt-16 md:mt-0'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

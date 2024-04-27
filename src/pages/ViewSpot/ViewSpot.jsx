@@ -22,7 +22,7 @@ const ViewSpot = () => {
         <title>View Spot - {tourists_spot_name}</title>
       </Helmet>
       <div className='dark:bg-color6'>
-        <div className='mt-20 py-20 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
+        <div className='mt-16 py-20 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='w-full lg:w-[90%] mx-auto bg-color8 p-10 rounded-xl'>
             <div className='flex flex-col lg:flex-row gap-10 items-center'>
               <div>

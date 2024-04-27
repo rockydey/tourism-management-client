@@ -72,7 +72,7 @@ const Header = () => {
             <div
               tabIndex={0}
               role='button'
-              className='btn btn-ghost px-0 mr-4 md:mr-5 lg:hidden'>
+              className='dark:text-color1 text-color6 px-0 mr-4 md:mr-5 lg:hidden'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-5 w-5'
@@ -89,7 +89,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className='menu font-medium dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
+              className='menu font-medium dropdown-content mt-3 z-[1] p-2 shadow bg-color1 dark:bg-color5 rounded-box w-52'>
               {navLinks}
             </ul>
           </div>
