@@ -97,7 +97,7 @@ const MyList = () => {
               Swal.fire({
                 icon: "success",
                 title: "Success!",
-                text: "Spot Updated Successfully!",
+                text: "Spot Deleted Successfully!",
                 confirmButtonColor: "#F9B17A",
                 confirmButtonText: "Okay",
               }).then((result) => {

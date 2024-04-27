@@ -4,6 +4,7 @@ import Footer from "../../components/Shared/Footer/Footer";
 import Banner from "../../components/Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import SpotCard from "../../components/SpotCard/SpotCard";
+import Countries from "../../components/Countries/Countries";
 
 const Home = () => {
   const allSpots = useLoaderData();
@@ -26,6 +27,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Countries />
       <Footer />
     </div>
   );
