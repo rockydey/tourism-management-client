@@ -65,8 +65,9 @@ const MyList = () => {
           Swal.fire({
             icon: "success",
             title: "Success!",
-            text: "Spot Added Successfully!",
-            confirmButtonText: "Cool",
+            text: "Spot Updated Successfully!",
+            confirmButtonColor: "#F9B17A",
+            confirmButtonText: "Okay",
           }).then((result) => {
             if (result.isConfirmed) {
               location.reload();
@@ -77,7 +78,37 @@ const MyList = () => {
   };
 
   const handleDelete = (id) => {
-    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#F9B17A",
+      cancelButtonColor: "#de463b",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/all-spots/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Spot Updated Successfully!",
+                confirmButtonColor: "#F9B17A",
+                confirmButtonText: "Okay",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  location.reload();
+                }
+              });
+            }
+          });
+      }
+    });
   };
   return (
     <div>
