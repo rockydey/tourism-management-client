@@ -12,11 +12,11 @@ const SpotCard = ({ spot }) => {
     average_cost,
   } = spot;
   return (
-    <div className='dark:bg-color1 shadow-lg rounded-xl  gap-10 flex flex-col md:flex-row items-center'>
-      <div>
+    <div className='dark:bg-color1 card lg:card-side bg-base-100 shadow-xl'>
+      <figure>
         <img className=' md:rounded-s-xl' src={image} alt='' />
-      </div>
-      <div className='space-y-2 py-3 pr-3 font-gothic'>
+      </figure>
+      <div className='card-body font-gothic'>
         <h3 className='text-2xl font-bold text-color6'>
           {tourists_spot_name}, {location}
         </h3>
@@ -27,11 +27,13 @@ const SpotCard = ({ spot }) => {
         <p className='text-base text-[#9b9b9b] font-medium'>
           {short_description}
         </p>
-        <Link
-          to={`/view-spot/${_id}`}
-          className='inline-block p-3 border-2 border-color6 text-color6 font-bold text-lg'>
-          View Details
-        </Link>
+        <div className="card-actions justify-start">
+          <Link
+            to={`/view-spot/${_id}`}
+            className='inline-block p-3 border-2 border-color6 text-color6 font-bold text-lg'>
+            View Details
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Footer from "../../components/Shared/Footer/Footer";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { MdBrowserUpdated, MdDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -51,7 +52,28 @@ const MyList = () => {
     };
     console.log(updateSpot);
 
-    
+    fetch(`http://localhost:5000/all-spots/${updateId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateSpot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Spot Added Successfully!",
+            confirmButtonText: "Cool",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
+        }
+      });
   };
 
   const handleDelete = (id) => {
