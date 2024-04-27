@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import { useLoaderData } from "react-router-dom";
 import AllTouristCard from "../../components/AllTouristCard/AllTouristCard";
 import { useState } from "react";
@@ -23,7 +21,6 @@ const AllTouristsSpot = () => {
       <Helmet>
         <title>All Tourists Spot</title>
       </Helmet>
-      <Header />
       <div className='dark:bg-color6'>
         <div className='mt-20 py-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='dropdown dropdown-bottom flex flex-col items-center mb-16'>
@@ -51,7 +48,6 @@ const AllTouristsSpot = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

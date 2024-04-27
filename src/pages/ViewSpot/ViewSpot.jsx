@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import { useLoaderData } from "react-router-dom";
 
 const ViewSpot = () => {
@@ -23,7 +21,6 @@ const ViewSpot = () => {
       <Helmet>
         <title>View Spot - {tourists_spot_name}</title>
       </Helmet>
-      <Header />
       <div className='dark:bg-color6'>
         <div className='mt-20 py-20 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='w-full lg:w-[90%] mx-auto bg-color8 p-10 rounded-xl'>
@@ -76,7 +73,6 @@ const ViewSpot = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

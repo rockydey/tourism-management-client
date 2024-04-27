@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
@@ -78,7 +76,6 @@ const AddTouristsSpot = () => {
       <Helmet>
         <title>Add Tourists Spot</title>
       </Helmet>
-      <Header />
       <div className='dark:bg-color6'>
         <div className='mt-20 py-24 px-5 md:px-10 lg:px-0'>
           <div className='bg-[#F4F3F0] w-full lg:w-3/4 mx-auto rounded-xl py-8 md:py-16 px-5 md:px-10 lg:px-20 space-y-8'>
@@ -264,7 +261,6 @@ const AddTouristsSpot = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,22 +1,24 @@
-import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, CircleX } from "lucide-react";
-import { IoMoon } from "react-icons/io5";
-import { IoSunny } from "react-icons/io5";
+import "./Header.css";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
-import { Tooltip } from "react-tooltip";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
-  const element = document.documentElement;
   const { user, logOut } = useContext(AuthContext);
+  const [dark, setDark] = useState(false);
 
   const handleLogOut = () => {
     logOut()
       .then(() => toast.success("Logout Successfully!"))
       .catch((error) => console.error(error));
+  };
+
+  const handleToggleDark = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
   };
 
   const navLinkStyles = ({ isActive }) => {
@@ -26,146 +28,126 @@ const Header = () => {
     };
   };
 
-  const options = [
-    {
-      text: "dark",
-      icon: <IoMoon />,
-    },
-    {
-      text: "light",
-      icon: <IoSunny />,
-    },
-  ];
-
-  useEffect(() => {
-    switch (theme) {
-      case "dark":
-        element.classList.add("dark");
-        break;
-
-      default:
-        element.classList.remove("dark");
-        break;
-    }
-  }, [theme]);
-
   const navLinks = (
     <>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          style={navLinkStyles}
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
-          to='/'>
+      <li className='text-color6 text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+        <NavLink style={navLinkStyles} to='/'>
           Home
         </NavLink>
       </li>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          style={navLinkStyles}
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
-          to='/all-spot'>
+      <li className='text-color6  text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+        <NavLink style={navLinkStyles} to='/all-spot'>
           All Tourists Spot
         </NavLink>
       </li>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          style={navLinkStyles}
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
-          to='/add-spot'>
+      <li className='text-color6 text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+        <NavLink style={navLinkStyles} to='/add-spot'>
           Add Tourists Spot
         </NavLink>
       </li>
-      <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-        <NavLink
-          style={navLinkStyles}
-          className='text-color6 dark:text-color8 hover:text-color3 duration-300'
-          to='/my-list'>
+      <li className='text-color6 text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+        <NavLink style={navLinkStyles} to='/my-list'>
           My List
         </NavLink>
       </li>
       {user ? (
-        <div className='lg:ml-8 gap-8 flex items-center text-xl lg:my-0 md:my-4 my-7'>
-          <div className='flex items-center'>
-            <div id='displayName' className='avatar online'>
-              <div className='w-10 rounded-full'>
-                <img src={user.photoURL} />
-              </div>
-            </div>
-            <Tooltip anchorSelect='#displayName' place='bottom'>
-              {user.displayName}
-            </Tooltip>
-          </div>
-          <button
-            onClick={handleLogOut}
-            className='text-color6 dark:text-color8 dark:border-color8 px-4 py-2 border-2 border-color6 rounded-xl duration-300'>
-            Logout
-          </button>
-        </div>
+        <></>
       ) : (
         <>
-          <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-            <NavLink
-              to='/login'
-              style={navLinkStyles}
-              className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
-              Login
-            </NavLink>
+          <li className='text-color6 md:hidden font-medium text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+            <Link to='/login'>Login</Link>
           </li>
-          <li className='lg:ml-8 text-xl lg:my-0 md:my-4 my-7'>
-            <NavLink
-              style={navLinkStyles}
-              to='/register'
-              className='text-color6 dark:text-color8 hover:text-color3 duration-300'>
-              Register
-            </NavLink>
+          <li className='text-color6 md:hidden font-medium text-lg lg:text-xl dark:text-color8 hover:text-color3 duration-300'>
+            <Link to='/register'>Register</Link>
           </li>
         </>
       )}
     </>
   );
   return (
-    <div className='z-50 shadow-md w-full fixed top-0 left-0 bg-color1 dark:bg-color5 duration-300'>
-      <div className='max-w-screen-xl mx-auto lg:flex items-center justify-between bg-white py-6 pl-5 md:pl-10 lg:pl-0'>
-        <Link
-          to='/'
-          className='font-black text-2xl md:text-3xl lg:text-4xl font-raleway text-color6 dark:text-color1'>
-          Roaming <span className='text-color3'>Routes</span>
-        </Link>
-
-        <div className='text-3xl flex flex-row-reverse items-center gap-2 md:gap-6 dark:text-color7 absolute right-8 top-6 cursor-pointer lg:hidden'>
-          <div onClick={() => setOpen(!open)} className='flex dark:text-color8'>
-            {open ? <CircleX /> : <Menu />}
+    <div className='z-50 shadow-md w-full fixed top-0 left-0 bg-[#fff] dark:bg-color5 duration-300'>
+      <div className='navbar max-w-screen-xl mx-auto md:px-5 lg:px-0'>
+        <div className='navbar-start'>
+          <div className='dropdown'>
+            <div
+              tabIndex={0}
+              role='button'
+              className='btn btn-ghost px-0 mr-4 md:mr-5 lg:hidden'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-5 w-5'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'>
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M4 6h16M4 12h8m-8 6h16'
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className='menu font-medium dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
+              {navLinks}
+            </ul>
           </div>
-          <div className='flex gap-2 md:gap-3 text-color6 rounded-md p-2 dark:bg-color8'>
-            {options.map((opt) => (
-              <button
-                onClick={() => setTheme(opt.text)}
-                className={`text-xl ${theme === opt.text && "text-color3"}`}
-                key={opt.text}>
-                {opt.icon}
-              </button>
-            ))}
-          </div>
+          <Link
+            to='/'
+            className='font-black text-2xl md:text-3xl lg:text-4xl font-raleway text-color6 dark:text-color1'>
+            Roaming<span className='text-color3'>Routes</span>
+          </Link>
         </div>
-
-        <ul
-          className={`lg:flex font-raleway bg-color1 dark:bg-color5 font-medium lg:items-center lg:rounded-none rounded-b-2xl absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-200 ease-in shadow-lg lg:shadow-none ${
-            open
-              ? "top-20 lg:border-none border-y-2 dark:border-color8 border-color6"
-              : "top-[-490px]"
-          }`}>
-          {navLinks}
-        </ul>
-
-        <div className='hidden lg:flex items-center lg:mt-1 gap-3 text-color6 rounded-md p-2 dark:bg-color8'>
-          {options.map((opt) => (
-            <button
-              onClick={() => setTheme(opt.text)}
-              className={`text-xl ${theme === opt.text && "text-color3"}`}
-              key={opt.text}>
-              {opt.icon}
-            </button>
-          ))}
+        <div className='navbar-center hidden lg:flex'>
+          <ul className='menu menu-horizontal font-medium'>{navLinks}</ul>
+        </div>
+        <div className='navbar-end flex-row-reverse md:flex-row justify-start md:justify-end gap-4 md:gap-8 lg:gap-0'>
+          <button
+            onClick={() => handleToggleDark()}
+            className='text-2xl text-color6 dark:text-color8'>
+            {dark && <IoSunny />}
+            {!dark && <IoMoon />}
+          </button>
+          {user ? (
+            <div className='lg:ml-8 md:gap-8 flex items-center text-xl'>
+              <div className='flex items-center'>
+                <div id='displayName' className='avatar online'>
+                  <div className='w-10 rounded-full'>
+                    <img src={user.photoURL} />
+                  </div>
+                </div>
+                <Tooltip anchorSelect='#displayName' clickable place='bottom'>
+                  <div>
+                    <p>{user.displayName}</p>
+                    <button
+                      onClick={handleLogOut}
+                      className='text-color1 md:hidden mt-2 font-medium px-4 py-2  bg-color3  rounded-xl duration-300'>
+                      Logout
+                    </button>
+                  </div>
+                </Tooltip>
+              </div>
+              <button
+                onClick={handleLogOut}
+                className='text-color6 hidden md:flex font-medium dark:text-color8 dark:border-color8 px-4 py-2 border-2 border-color6 rounded-xl duration-300'>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link
+                to='/login'
+                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 hover:text-color3 lg:ml-8 text-xl dark:text-color8  duration-300'>
+                Login
+              </Link>
+              <Link
+                to='/register'
+                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 lg:ml-8 text-xl dark:text-color8 hover:text-color3 duration-300'>
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

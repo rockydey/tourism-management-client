@@ -1,5 +1,3 @@
-import Footer from "../../components/Shared/Footer/Footer";
-import Header from "../../components/Shared/Header/Header";
 import { useForm } from "react-hook-form";
 import { AtSign, LockKeyhole, Eye, EyeOff, User, ImageUp } from "lucide-react";
 import { useContext, useState } from "react";
@@ -57,7 +55,6 @@ const Register = () => {
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <Header />
       <div className='bg-color3 px-5 md:px-0'>
         <div className='max-w-screen-xl mx-auto mt-20 py-24'>
           <div className='px-5 py-10 md:px-10 rounded-xl bg-color1 dark:bg-color5 w-full md:w-3/4 lg:w-[40%] mx-auto'>
@@ -180,7 +177,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

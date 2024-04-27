@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { MdBrowserUpdated, MdDeleteOutline } from "react-icons/md";
@@ -115,7 +113,6 @@ const MyList = () => {
       <Helmet>
         <title>My List</title>
       </Helmet>
-      <Header />
       <div className='dark:bg-color6'>
         <div className='mt-20 max-w-screen-xl mx-auto py-24 px-5 md:px-10 lg:px-0'>
           <div className='overflow-x-auto'>
@@ -335,7 +332,6 @@ const MyList = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

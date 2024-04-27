@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import { useForm } from "react-hook-form";
 import { AtSign, LockKeyhole, Eye, EyeOff } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -54,7 +52,6 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <Header />
       <div className='bg-color3 px-5 md:px-0'>
         <div className='max-w-screen-xl mx-auto mt-20 py-24'>
           <div className='px-5 py-10 md:px-10 rounded-xl bg-color1 dark:bg-color5 w-full md:w-3/4 lg:w-[40%] mx-auto'>
@@ -151,7 +148,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

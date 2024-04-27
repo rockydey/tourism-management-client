@@ -1,11 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/Shared/Header/Header";
-import Footer from "../../components/Shared/Footer/Footer";
 import Banner from "../../components/Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import SpotCard from "../../components/SpotCard/SpotCard";
 import Countries from "../../components/Countries/Countries";
-import homeBg from "../../assets/homeBG.jpg";
+import homeBg1 from "../../assets/homeBG.jpg";
 import { useTypewriter } from "react-simple-typewriter";
 
 const Home = () => {
@@ -19,7 +17,6 @@ const Home = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <Header />
       <Banner />
       <div className='dark:bg-color5'>
         <div className='py-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
@@ -38,7 +35,7 @@ const Home = () => {
         <div className='pb-24 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-0'>
           <div className='flex flex-col lg:flex-row items-center gap-10'>
             <div className=''>
-              <img className='rounded-xl' src={homeBg} alt='' />
+              <img className='rounded-xl' src={homeBg1} alt='' />
             </div>
             <div className='space-y-5'>
               <h3 className='text-5xl font-bold font-raleway text-color6 dark:text-color1'>
@@ -56,7 +53,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
