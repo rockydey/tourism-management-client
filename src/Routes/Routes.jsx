@@ -9,6 +9,7 @@ import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoute";
 import ViewSpot from "../pages/ViewSpot/ViewSpot";
 import MyList from "../pages/MyList/MyList";
+import ViewCountry from "../pages/ViewCountry/ViewCountry";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetch("http://localhost:5000/all-spots"),
+      },
+      {
+        path: "/view-country/:name",
+        element: <ViewCountry />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/country-list/${params.name}`),
       },
       {
         path: "/all-spot",
