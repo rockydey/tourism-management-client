@@ -102,7 +102,7 @@ const Header = () => {
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal font-medium'>{navLinks}</ul>
         </div>
-        <div className='navbar-end flex-row-reverse md:flex-row justify-start md:justify-end gap-4 md:gap-8 lg:gap-0'>
+        <div className='navbar-end flex-row-reverse md:flex-row justify-start md:justify-end gap-4 md:gap-5 lg:gap-0'>
           <button
             onClick={() => handleToggleDark()}
             className='text-2xl text-color6 dark:text-color8'>
@@ -110,7 +110,7 @@ const Header = () => {
             {!dark && <IoMoon />}
           </button>
           {user ? (
-            <div className='lg:ml-8 md:gap-8 flex items-center text-xl'>
+            <div className='lg:ml-5 md:gap-5 flex items-center text-xl'>
               <div className='flex items-center'>
                 <div id='displayName' className='avatar online'>
                   <div className='w-10 rounded-full'>
@@ -138,12 +138,12 @@ const Header = () => {
             <>
               <Link
                 to='/login'
-                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 hover:text-color3 lg:ml-8 text-xl dark:text-color8  duration-300'>
+                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 hover:text-color3 lg:ml-5 text-xl dark:text-color8  duration-300'>
                 Login
               </Link>
               <Link
                 to='/register'
-                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 lg:ml-8 text-xl dark:text-color8 hover:text-color3 duration-300'>
+                className='text-color6 hidden md:flex font-medium border-2 p-2 rounded-lg border-color6 dark:border-color8 dark:hover:text-color3 lg:ml-5 text-xl dark:text-color8 hover:text-color3 duration-300'>
                 Register
               </Link>
             </>

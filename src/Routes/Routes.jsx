@@ -20,18 +20,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/all-spots"),
+        loader: () => fetch("https://tourism-management-server-zeta.vercel.app/all-spots"),
       },
       {
         path: "/view-country/:name",
         element: <ViewCountry />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/country-list/${params.name}`),
+          fetch(`https://tourism-management-server-zeta.vercel.app/country-list/${params.name}`),
       },
       {
         path: "/all-spot",
         element: <AllTouristsSpot />,
-        loader: () => fetch("http://localhost:5000/all-spots"),
+        loader: () => fetch("https://tourism-management-server-zeta.vercel.app/all-spots"),
       },
       {
         path: "/view-spot/:id",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-spots/${params.id}`),
+          fetch(`https://tourism-management-server-zeta.vercel.app/all-spots/${params.id}`),
       },
       {
         path: "/add-spot",

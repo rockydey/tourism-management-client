@@ -59,16 +59,16 @@ const Home = () => {
         </div>
       </div>
       <div className='dark:bg-color5'>
-        <div className='pb-24 grid grid-cols-2'>
+        <div className='pb-24 grid grid-cols-1 lg:grid-cols-2'>
           <div
             style={{ backgroundImage: `url(${homeBg3})` }}
             className='hero bg-cover full bg center bg-no-repeat'>
             <div className='hero-overlay bg-[#00000080]'></div>
-            <div className='hero-content flex-col  space-y-5'>
+            <div className='hero-content p-0 py-5 flex-col md:space-y-5'>
               <h4 className='text-4xl font-extrabold text-color1'>
                 Our Top Reviews
               </h4>
-              <div className='w-3/5 mx-auto'>
+              <div className='md:w-3/5 mx-auto'>
                 <Review />
               </div>
             </div>

@@ -11,7 +11,7 @@ const MyList = () => {
   const [updateList, setUpdateList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-list/${user.email}`)
+    fetch(`https://tourism-management-server-zeta.vercel.app/my-list/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyLists(data);
@@ -50,7 +50,7 @@ const MyList = () => {
     };
     console.log(updateSpot);
 
-    fetch(`http://localhost:5000/all-spots/${updateId}`, {
+    fetch(`https://tourism-management-server-zeta.vercel.app/all-spots/${updateId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/all-spots/${id}`, {
+        fetch(`https://tourism-management-server-zeta.vercel.app/all-spots/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

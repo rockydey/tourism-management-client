@@ -56,7 +56,7 @@ const AddTouristsSpot = () => {
     };
     console.log(newSpot);
 
-    fetch("http://localhost:5000/all-spots", {
+    fetch("https://tourism-management-server-zeta.vercel.app/all-spots", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
