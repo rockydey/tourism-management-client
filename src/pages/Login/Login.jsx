@@ -18,7 +18,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn, facebookSignIn } = useContext(AuthContext);
 
   const handleLogin = (data) => {
     const email = data.userEmail;
@@ -47,6 +47,19 @@ const Login = () => {
         toast.error(error.message);
       });
   };
+
+  const handleFacebookLogin = () => {
+    facebookSignIn()
+      .then((result) => {
+        toast.success("User logged in successfully!");
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div>
       <Helmet>
@@ -70,14 +83,17 @@ const Login = () => {
                   Login with Google
                 </Tooltip>
               </div>
-              <p
-                id='facebookId'
-                className='flex p-2 cursor-pointer border border-color3 text-[#1877F2] bg-[#fff] rounded-full'>
-                <FaFacebook />
-              </p>
-              <Tooltip anchorSelect='#facebookId' place='bottom'>
-                Login with Facebook
-              </Tooltip>
+              <div>
+                <p
+                  onClick={handleFacebookLogin}
+                  id='facebookId'
+                  className='flex p-2 cursor-pointer border border-color3 text-[#1877F2] bg-[#fff] rounded-full'>
+                  <FaFacebook />
+                </p>
+                <Tooltip anchorSelect='#facebookId' place='bottom'>
+                  Login with Facebook
+                </Tooltip>
+              </div>
             </div>
             <div className='divider dark:text-color8 dark:divider-neutral'>
               OR
