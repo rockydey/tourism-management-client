@@ -24,7 +24,7 @@ const Home = () => {
             Spotlight
           </h3>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-            {allSpots.slice(0, 6).map((spot) => (
+            {allSpots.slice(allSpots.length-6, allSpots.length).map((spot) => (
               <SpotCard key={spot._id} spot={spot}></SpotCard>
             ))}
           </div>

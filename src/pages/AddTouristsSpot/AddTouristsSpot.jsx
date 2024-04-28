@@ -70,7 +70,8 @@ const AddTouristsSpot = () => {
             icon: "success",
             title: "Success!",
             text: "Spot Added Successfully!",
-            confirmButtonText: "Cool",
+            confirmButtonColor: "#F9B17A",
+            confirmButtonText: "Okay",
           });
         }
         form.reset();
@@ -215,14 +216,18 @@ const AddTouristsSpot = () => {
                     className='block mb-4 text-color5 text-xl font-semibold'>
                     Seasonality
                   </label>
-                  <input
+                  <select
                     type='text'
                     name='seasonality'
                     id='seasonality'
-                    required
                     placeholder='Seasonality'
-                    className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
-                  />
+                    className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'>
+                    <option defaultValue='All' value='All'>
+                      All
+                    </option>
+                    <option value='Summer'>Summer</option>
+                    <option value='Winter'>Winter</option>
+                  </select>
                 </div>
               </div>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
