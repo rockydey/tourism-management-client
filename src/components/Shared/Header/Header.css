@@ -1,8 +1,7 @@
 ul li a:hover {
   background-color: inherit !important;
-  color: #f9b17a;
+  color: #f9b17a !important;
 }
 .active {
   background-color: inherit !important;
-  color: #fff;
 }
