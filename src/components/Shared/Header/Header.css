@@ -2,7 +2,7 @@ ul li a:hover {
   background-color: inherit !important;
   color: #f9b17a;
 }
-ul li a.active {
+.active {
   background-color: inherit !important;
   color: #fff;
 }

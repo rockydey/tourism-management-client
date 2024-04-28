@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
@@ -21,6 +22,10 @@ const AddTouristsSpot = () => {
     const time = form.time.value;
     const visitors = form.visitors.value;
     const photo = form.photo.value;
+
+    if (countryName === "Country Name") {
+      return toast.error("Please select a country!");
+    }
 
     // console.log(
     //   userName,
@@ -111,7 +116,7 @@ const AddTouristsSpot = () => {
                     id='userEmail'
                     defaultValue={user?.email}
                     readOnly
-                    placeholder='Country name'
+                    placeholder='User Email'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
                 </div>
@@ -127,6 +132,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='name'
                     id='name'
+                    required
                     placeholder='Tourists spot name'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -137,13 +143,22 @@ const AddTouristsSpot = () => {
                     className='block mb-4 text-color5 text-xl font-semibold'>
                     Country Name
                   </label>
-                  <input
+                  <select
                     type='text'
                     name='country'
                     id='country'
                     placeholder='Country name'
-                    className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
-                  />
+                    className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'>
+                    <option disabled selected value='Country Name'>
+                      Country Name
+                    </option>
+                    <option value='Bangladesh'>Bangladesh</option>
+                    <option value='Thailand'>Thailand</option>
+                    <option value='Indonesia'>Indonesia</option>
+                    <option value='Malaysia'>Malaysia</option>
+                    <option value='Vietnam'>Vietnam</option>
+                    <option value='Cambodia'>Cambodia</option>
+                  </select>
                 </div>
               </div>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -157,6 +172,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='location'
                     id='location'
+                    required
                     placeholder='Location'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -171,6 +187,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='description'
                     id='description'
+                    required
                     placeholder='Short Description'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -187,6 +204,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='cost'
                     id='cost'
+                    required
                     placeholder='Average cost'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -201,6 +219,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='seasonality'
                     id='seasonality'
+                    required
                     placeholder='Seasonality'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -217,6 +236,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='time'
                     id='time'
+                    required
                     placeholder='Travel time'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -231,6 +251,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='visitors'
                     id='visitors'
+                    required
                     placeholder='Visitors per year'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
@@ -247,6 +268,7 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='photo'
                     id='photo'
+                    required
                     placeholder='Enter photo URL'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
                   />
