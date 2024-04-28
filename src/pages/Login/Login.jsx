@@ -4,7 +4,7 @@ import { AtSign, LockKeyhole, Eye, EyeOff } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
@@ -18,7 +18,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { signInUser, googleSignIn, facebookSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
   const handleLogin = (data) => {
     const email = data.userEmail;
@@ -48,8 +48,8 @@ const Login = () => {
       });
   };
 
-  const handleFacebookLogin = () => {
-    facebookSignIn()
+  const handleGithubLogin = () => {
+    githubSignIn()
       .then((result) => {
         toast.success("User logged in successfully!");
         console.log(result.user);
@@ -85,13 +85,13 @@ const Login = () => {
               </div>
               <div>
                 <p
-                  onClick={handleFacebookLogin}
-                  id='facebookId'
-                  className='flex p-2 cursor-pointer border border-color3 text-[#1877F2] bg-[#fff] rounded-full'>
-                  <FaFacebook />
+                  onClick={handleGithubLogin}
+                  id='githubId'
+                  className='flex p-2 cursor-pointer border border-color3 text-color5 bg-[#fff] rounded-full'>
+                  <FaGithub />
                 </p>
-                <Tooltip anchorSelect='#facebookId' place='bottom'>
-                  Login with Facebook
+                <Tooltip anchorSelect='#githubId' place='bottom'>
+                  Login with Github
                 </Tooltip>
               </div>
             </div>

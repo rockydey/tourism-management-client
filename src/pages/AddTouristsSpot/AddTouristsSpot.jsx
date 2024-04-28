@@ -115,7 +115,9 @@ const AddTouristsSpot = () => {
                     type='text'
                     name='userEmail'
                     id='userEmail'
-                    defaultValue={user?.email}
+                    defaultValue={
+                      user?.email ? user?.email : "user@email.com"
+                    }
                     readOnly
                     placeholder='User Email'
                     className='w-full py-3 pl-3 rounded-md focus:outline-none font-gothic text-base font-normal text-color5'
