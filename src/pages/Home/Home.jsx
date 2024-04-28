@@ -4,7 +4,10 @@ import { useLoaderData } from "react-router-dom";
 import SpotCard from "../../components/SpotCard/SpotCard";
 import Countries from "../../components/Countries/Countries";
 import homeBg1 from "../../assets/homeBG.jpg";
+import homeBg2 from "../../assets/homeBg2.jpg";
+import homeBg3 from "../../assets/homeBg3.jpg";
 import { useTypewriter } from "react-simple-typewriter";
+import Review from "../../components/Review/Review";
 
 const Home = () => {
   const allSpots = useLoaderData();
@@ -24,9 +27,11 @@ const Home = () => {
             Spotlight
           </h3>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-            {allSpots.slice(allSpots.length-6, allSpots.length).map((spot) => (
-              <SpotCard key={spot._id} spot={spot}></SpotCard>
-            ))}
+            {allSpots
+              .slice(allSpots.length - 6, allSpots.length)
+              .map((spot) => (
+                <SpotCard key={spot._id} spot={spot}></SpotCard>
+              ))}
           </div>
         </div>
       </div>
@@ -50,6 +55,26 @@ const Home = () => {
                 See More
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className='dark:bg-color5'>
+        <div className='pb-24 grid grid-cols-2'>
+          <div
+            style={{ backgroundImage: `url(${homeBg3})` }}
+            className='hero bg-cover full bg center bg-no-repeat'>
+            <div className='hero-overlay bg-[#00000080]'></div>
+            <div className='hero-content flex-col  space-y-5'>
+              <h4 className='text-4xl font-extrabold text-color1'>
+                Our Top Reviews
+              </h4>
+              <div className='w-3/5 mx-auto'>
+                <Review />
+              </div>
+            </div>
+          </div>
+          <div>
+            <img src={homeBg2} alt='' />
           </div>
         </div>
       </div>
