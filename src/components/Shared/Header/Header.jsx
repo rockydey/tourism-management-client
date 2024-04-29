@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
@@ -8,7 +8,7 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(localStorage.getItem("darkMode"));
 
   const handleLogOut = () => {
     logOut()
@@ -16,9 +16,19 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
 
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    setDark(isDarkMode);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", dark);
+    localStorage.setItem("darkMode", dark);
+  }, [dark]);
+
   const handleToggleDark = () => {
-    setDark(!dark);
-    document.body.classList.toggle("dark");
+    setDark((prevMode) => !prevMode);
+    // document.body.classList.toggle("dark");
   };
 
   const navLinkStyles = ({ isActive }) => {
