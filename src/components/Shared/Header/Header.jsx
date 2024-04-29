@@ -114,12 +114,12 @@ const Header = () => {
               <div className='flex items-center'>
                 <div id='displayName' className='avatar online'>
                   <div className='w-10 rounded-full'>
-                    <img src={user.photoURL} />
+                    <img src={user?.photoURL} />
                   </div>
                 </div>
                 <Tooltip anchorSelect='#displayName' clickable place='bottom'>
-                  <div>
-                    <p>{user.displayName}</p>
+                  <div className='text-center'>
+                    <p>{user?.displayName}</p>
                     <button
                       onClick={handleLogOut}
                       className='text-color1 md:hidden mt-2 font-medium px-4 py-2  bg-color3  rounded-xl duration-300'>

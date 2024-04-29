@@ -38,6 +38,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         toast.success("User Registered Successfully!");
+        navigate(location?.state ? location.state : "/");
         console.log(result.user);
         userUpdateProfile(name, photoURL)
           .then((result) => {
@@ -45,7 +46,6 @@ const Register = () => {
             console.log(result);
           })
           .catch((error) => console.error(error.message));
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => toast.error(error.message));
   };
@@ -153,6 +153,7 @@ const Register = () => {
                   onClick={() => setChecked(!checked)}
                   type='checkbox'
                   name='checkbox'
+                  className='cursor-pointer'
                   id=''
                 />
                 <span className='text-color6 dark:text-color8'>
