@@ -26,9 +26,9 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         toast.success("User logged in successfully!");
         console.log(result.user);
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error("Wrong email or password!");
@@ -39,9 +39,9 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         toast.success("User logged in successfully!");
         console.log(result.user);
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -51,9 +51,9 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubSignIn()
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         toast.success("User logged in successfully!");
         console.log(result.user);
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error.message);

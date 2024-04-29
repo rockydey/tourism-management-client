@@ -37,8 +37,8 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        toast.success("User Registered Successfully!");
         navigate(location?.state ? location.state : "/");
+        toast.success("User Registered Successfully!");
         console.log(result.user);
         userUpdateProfile(name, photoURL)
           .then((result) => {
