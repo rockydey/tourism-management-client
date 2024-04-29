@@ -111,7 +111,7 @@ const Header = () => {
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal font-medium'>{navLinks}</ul>
         </div>
-        <div className='navbar-end flex-row-reverse md:flex-row justify-start md:justify-end gap-4 md:gap-5 lg:gap-0'>
+        <div className='navbar-end flex-row-reverse md:flex-row justify-start md:justify-end gap-5 lg:gap-0'>
           <button
             onClick={() => handleToggleDark()}
             className='text-2xl text-color6 dark:text-color8'>
@@ -121,7 +121,7 @@ const Header = () => {
           {user ? (
             <div className='lg:ml-5 md:gap-5 flex items-center text-xl'>
               <div className='flex items-center'>
-                <div id='displayName' className='avatar online'>
+                <div id='displayName' className='avatar online cursor-pointer'>
                   <div className='w-10 rounded-full'>
                     <img src={user?.photoURL} />
                   </div>
