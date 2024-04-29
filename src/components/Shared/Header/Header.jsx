@@ -28,7 +28,6 @@ const Header = () => {
 
   const handleToggleDark = () => {
     setDark((prevMode) => !prevMode);
-    // document.body.classList.toggle("dark");
   };
 
   const navLinkStyles = ({ isActive }) => {
